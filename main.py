@@ -47,11 +47,48 @@ def web_iris_knn():
             "length_s": length_s,
             "width_s": width_s,
             "length_p": length_p,
-            "width_p": width_s,
+            "width_p": width_p,
             "result": r
         }
 
     return render_template('iris-knn.html', data=data, url=request.base_url)
+
+@app.route('/banknote-svm', methods=['POST', 'GET'])
+def web_banknote_svm():
+
+    data = {
+        "variance": 0,
+        "skewness": 2,
+        "curtosis": 0,
+        "entropy": 0,
+        "result": 0
+    }
+
+    if request.method == 'POST':
+        variance = float(request.form.get('variance'))
+        skewness = float(request.form.get('skewness'))
+        curtosis = float(request.form.get('curtosis'))
+        entropy = float(request.form.get('entropy'))
+        
+        y_pred = knn.predict([[variance, skewness, curtosis, entropy]])
+    
+        r = ""
+        if y_pred[0] == 0:
+            r = "Iris-setosa"
+        elif y_pred[0] == 1:
+            r = "Iris-versicolor"
+        elif y_pred[0] == 2:
+            r = "Iris-virginica"
+
+        data = {
+            "variance": variance,
+            "skewness": skewness,
+            "curtosis": curtosis,
+            "entropy": entropy,
+            "result": r
+        }
+
+    return render_template('banknote-svm.html', data=data, url=request.base_url)
 
 
 
