@@ -51,7 +51,7 @@ def web_iris_knn():
             "result": r
         }
 
-    return render_template('iris-knn.html', data=data)
+    return render_template('iris-knn.html', data=data, url=request.base_url)
 
 
 
