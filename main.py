@@ -70,7 +70,7 @@ def web_banknote_svm():
         curtosis = float(request.form.get('curtosis'))
         entropy = float(request.form.get('entropy'))
         
-        y_pred = knn.predict([[variance, skewness, curtosis, entropy]])
+        y_pred = svclassifier.predict([[variance, skewness, curtosis, entropy]])
     
         r = ""
         if y_pred[0] == 0:
@@ -133,7 +133,7 @@ def api_banknotes_svm():
     curtosis = float(request.form.get('curtosis'))
     entropy = float(request.form.get('entropy'))
 
-    pred = svclassifier([variance, skewness, curtosis, entropy])[0]
+    pred = svclassifier.predict([[variance, skewness, curtosis, entropy]])[0]
     result = "A nota eh falsa"
 
     if pred == 0 :
