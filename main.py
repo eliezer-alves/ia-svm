@@ -74,11 +74,9 @@ def web_banknote_svm():
     
         r = ""
         if y_pred[0] == 0:
-            r = "Iris-setosa"
+            r = "Falsa"
         elif y_pred[0] == 1:
-            r = "Iris-versicolor"
-        elif y_pred[0] == 2:
-            r = "Iris-virginica"
+            r = "Verdadeira"
 
         data = {
             "variance": variance,

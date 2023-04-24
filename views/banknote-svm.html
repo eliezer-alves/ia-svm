@@ -10,7 +10,7 @@
   <body
     class="w-full h-[100vh] bg-slate-100 flex flex-col gap-10 items-center justify-center"
   >
-    <h1 class="text-gray-700 text-4xl font-bold mb-4">Bank Note KNN</h1>
+    <h1 class="text-gray-700 text-4xl font-bold mb-4">Bank Note SVM</h1>
     <h1 class="text-gray-700 text-2xl">Result -> {{ data.result }}</h1>
     <div class="w-1/4 py-8 bg-white rounded-lg shadow-sm">
       <form class="w-full max-w-sm" method="post" action="{{ url }}">
@@ -29,7 +29,6 @@
               name="variance"
               type="number"
               step="0.01"
-              min="0"
               value="{{ data.variance }}"
             />
           </div>
@@ -49,7 +48,6 @@
               name="skewness"
               type="number"
               step="0.01"
-              min="0"
               value="{{ data.skewness }}"
             />
           </div>
@@ -69,7 +67,6 @@
               name="curtosis"
               type="number"
               step="0.01"
-              min="0"
               value="{{ data.curtosis }}"
             />
           </div>
@@ -89,7 +86,6 @@
               name="entropy"
               type="number"
               step="0.01"
-              min="0"
               value="{{ data.entropy }}"
             />
           </div>
